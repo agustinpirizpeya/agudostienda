@@ -1,6 +1,6 @@
 import './navBar.css';
 import React from 'react';
-import logo from '../assets/icons/logo-market.svg'
+import logo from '../../assets/icons/logo-market.svg'
 
 function NavBar(){
     return(
