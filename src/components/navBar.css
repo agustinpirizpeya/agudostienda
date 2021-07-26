@@ -1,0 +1,37 @@
+.navbar{
+    background-color: #3cc195;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    width: 100%;
+}
+
+.logo{
+    width: 30px;
+    margin-left: 10px;
+}
+
+.topnav {
+    font-weight: bold;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.topnav a {
+    float: left;
+    color: #312828;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    border-bottom: 1.9px solid transparent;
+}
+
+.topnav a:hover {
+    border-bottom: 1.9px solid red;
+}
+
+.topnav a.active {
+    border-bottom: 1.9px solid red;
+}
