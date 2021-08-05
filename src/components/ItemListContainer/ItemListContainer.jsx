@@ -6,7 +6,7 @@ export default function ItemListContainer(props) {
         <>
             <h1>{props.text}</h1>
             <div className='itemCount'>
-                <ItemCount/>
+                <ItemCount stock={5} initial={1}/>
             </div>
         </>
     );
