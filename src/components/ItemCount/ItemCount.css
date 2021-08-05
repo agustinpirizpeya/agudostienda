@@ -1,0 +1,18 @@
+.itemCountContainer{
+    display: flex;
+    flex-direction: column;
+    background-color: antiquewhite;
+    align-items: flex-start;
+}
+
+.itemCountContent{
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+}
+
+.countContent{
+    display: flex;
+    flex-direction: column;
+}

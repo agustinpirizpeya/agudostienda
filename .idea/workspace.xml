@@ -2,10 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2ad30084-57f4-480a-980e-9f8c40674eed" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/CartWidget/CardWidget.jsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ItemListContainer/ItemListContainer.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/add-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/assets/icons/subtract-icon.svg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Button/Button.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Button/button.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ButtonCount/ButtonCount.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ButtonCount/buttonCount.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ItemCount/ItemCount.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ItemCount/ItemCount.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/ItemListContainer/itemListContainer.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LabelWithCounter/LabelWithCounter.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/LabelWithCounter/labelWithCounter.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/NavBar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/NavBar/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/ItemListContainer/ItemListContainer.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemListContainer/ItemListContainer.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar/NavBar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/global/NavBar/NavBar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/NavBar/navBar.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/global/NavBar/navBar.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,10 +35,18 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/components/NavBar/navBar.css" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/src/components/NavBar/NavBar.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/ItemCount/ItemCount.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/modules/global/NavBar/navBar.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/ItemListContainer/ItemListContainer.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/LabelWithCounter/labelWithCounter.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/modules/global/NavBar/NavBar.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/ItemCount/ItemCount.css" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/Button/Button.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/CartWidget/CardWidget.jsx" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/App.test.js" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/src/App.js" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/LabelWithCounter/LabelWithCounter.jsx" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/components/ItemListContainer/itemListContainer.css" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectId" id="1vYAASPmx1OxA7zzwDw8pKoPkxE" />
   <component name="ProjectViewState">
@@ -52,21 +72,9 @@
       <recent name="$PROJECT_DIR$/src/assets/icons" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/modules/global" />
       <recent name="$PROJECT_DIR$/src/components/NavBar" />
     </key>
-  </component>
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -79,7 +87,8 @@
       <workItem from="1626728506089" duration="539000" />
       <workItem from="1627312337978" duration="12008000" />
       <workItem from="1627572771093" duration="16000" />
-      <workItem from="1627577063992" duration="1588000" />
+      <workItem from="1627577063992" duration="6939000" />
+      <workItem from="1627654039779" duration="7927000" />
     </task>
     <servers />
   </component>

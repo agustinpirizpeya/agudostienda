@@ -1,8 +1,7 @@
 import './navBar.css';
 import React from 'react';
-import logo from '../../assets/icons/logo-market.svg'
-import CardWidget from "../CartWidget/CardWidget";
-import ItemListContainer from "../ItemListContainer/ItemListContainer";
+import logo from '../../../assets/icons/logo-market.svg'
+import CardWidget from "../../../components/CartWidget/CardWidget";
 
 function NavBar(){
     return(
@@ -17,7 +16,6 @@ function NavBar(){
                     <a href="#contact">Contact</a>
                 </div>
             </div>
-            <ItemListContainer text={"Hola"}/>
         </div>
     );
 };
