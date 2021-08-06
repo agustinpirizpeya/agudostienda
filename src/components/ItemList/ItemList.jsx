@@ -25,6 +25,24 @@ export default function ItemList() {
                 title: "Camisa 2021",
                 price: "3000",
                 pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0274_2000-2000_1587393843_418.jpg"
+            },
+            {
+                id: "4",
+                title: "Camisa 2021",
+                price: "3000",
+                pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0274_2000-2000_1587393843_418.jpg"
+            },
+            {
+                id: "4",
+                title: "Camisa 2021",
+                price: "3000",
+                pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0274_2000-2000_1587393843_418.jpg"
+            },
+            {
+                id: "4",
+                title: "Camisa 2021",
+                price: "3000",
+                pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0274_2000-2000_1587393843_418.jpg"
             }];
         new Promise((resolve, reject) => {
             setTimeout(() => resolve(productsData), 2000);
