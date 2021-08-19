@@ -1,0 +1,17 @@
+.detailContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.imgDetailContainer{
+
+}
+
+.itemDetailInfoContainer{
+    display: flex;
+    flex-direction: column;
+}
+
+.itemDetailTitle{
+
+}

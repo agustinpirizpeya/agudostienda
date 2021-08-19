@@ -1,3 +1,4 @@
+import ItemCount from "../ItemCount/ItemCount";
 import './item.css'
 
 export default function Item(props) {
@@ -11,8 +12,8 @@ export default function Item(props) {
                     <h4>{props.productItem.title}</h4>
                 </div>
                 <h3>{props.productItem.price}</h3>
+                <ItemCount stock={5} initial={1}/>
             </div>
-
         </div>
     );
 }
