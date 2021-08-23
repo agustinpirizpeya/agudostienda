@@ -5,8 +5,10 @@ import {useEffect, useState} from "react";
 export default function ItemList() {
 
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
+        setLoading(true);
         const productsData = [
             {
                 id: "1",
@@ -45,13 +47,18 @@ export default function ItemList() {
                 pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0274_2000-2000_1587393843_418.jpg"
             }];
         new Promise((resolve, reject) => {
-            setTimeout(() => resolve(productsData), 2000);
+            setTimeout(() => resolve(productsData), 1000);
         }).then((dataResolve) => {
             setProducts(dataResolve);
+            setLoading(false);
         }).catch((error) => {
             console.log("error", error);
         });
     }, []);
+
+    if(loading){
+        return <h1>Loading...</h1>
+    }
 
     return (
         <div className='itemList'>

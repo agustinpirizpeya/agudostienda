@@ -1,18 +1,31 @@
-import NavBar from './modules/global/NavBar/NavBar';
-import './app.css';
-import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import NavBar from "./modules/global/NavBar/NavBar";
+import "./app.css";
+import Home from "./pages/Home/Home";
 import React from "react";
-import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
+import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
   return (
-    <div className='main'>
-      <header>
-        <NavBar/>
-          <ItemListContainer text={"Hola"}/>
-          <ItemDetailContainer/>
-      </header>
-    </div>
+    <BrowserRouter>
+      <div className="main">
+        <header>
+          <NavBar />
+        </header>
+      </div>
+      <Switch>
+        <Route exact path="/">
+          <ItemListContainer />
+        </Route>
+        <Route exact path="/category/:id">
+          <ItemListContainer />
+        </Route>
+        <Route exact path="/item/:id">
+          <ItemDetailContainer />
+        </Route>
+      </Switch>
+    </BrowserRouter>
   );
 }
 
