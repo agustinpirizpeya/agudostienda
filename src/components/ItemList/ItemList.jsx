@@ -7,54 +7,29 @@ export default function ItemList() {
     const [products, setProducts] = useState([]);
     const [loading, setLoading] = useState(false);
 
-    useEffect(() => {
+    const getItemList = async () => {
         setLoading(true);
-        const productsData = [
+        try {
+          const response = await fetch(
+            `https://rickandmortyapi.com/api/character`,
             {
-                id: "1",
-                title: "Campera Invierno",
-                price: "1500",
-                pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0583color_2000-2000_1593088291_6ce.jpg"
-            },
-            {
-                id: "2",
-                title: "Pantalon Deportivowewewewe",
-                price: "2000",
-                pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0447c_2000-2000_1597081835_b6a.jpg"
-            },
-            {
-                id: "3",
-                title: "Camisa 2021",
-                price: "3000",
-                pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0274_2000-2000_1587393843_418.jpg"
-            },
-            {
-                id: "4",
-                title: "Camisa 2021",
-                price: "3000",
-                pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0274_2000-2000_1587393843_418.jpg"
-            },
-            {
-                id: "4",
-                title: "Camisa 2021",
-                price: "3000",
-                pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0274_2000-2000_1587393843_418.jpg"
-            },
-            {
-                id: "4",
-                title: "Camisa 2021",
-                price: "3000",
-                pictureUrl: "https://s.fenicio.app/f2/baseuy/productos/img-0274_2000-2000_1587393843_418.jpg"
-            }];
-        new Promise((resolve, reject) => {
-            setTimeout(() => resolve(productsData), 1000);
-        }).then((dataResolve) => {
-            setProducts(dataResolve);
+              method: "GET",
+            }
+          );
+          const data = await response.json();
+    
+          if (data) {
             setLoading(false);
-        }).catch((error) => {
-            console.log("error", error);
-        });
-    }, []);
+            setProducts(data.results);
+          }
+        } catch (error) {
+          console.log("Error");
+        }
+      };
+    
+      useEffect(() => {
+        getItemList();
+      }, []);
 
     if(loading){
         return <h1>Loading...</h1>

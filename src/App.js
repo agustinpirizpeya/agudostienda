@@ -1,6 +1,5 @@
 import NavBar from "./modules/global/NavBar/NavBar";
 import "./app.css";
-import Home from "./pages/Home/Home";
 import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
@@ -23,6 +22,9 @@ function App() {
         </Route>
         <Route exact path="/item/:id">
           <ItemDetailContainer />
+        </Route>
+        <Route exact path="/cart">
+          <ItemListContainer/>
         </Route>
       </Switch>
     </BrowserRouter>
