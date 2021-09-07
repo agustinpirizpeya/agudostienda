@@ -3,22 +3,42 @@ import "./app.css";
 import { useState, React } from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { CartContext } from "./context/cartContext";
+import Cart from "./components/Cart/Cart";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
 
+  /* const cart = [
+    {
+      id: 1,
+      name: "Hola1",
+      price: 10
+    },
+    {
+      id: 2,
+      name: "Hola2",
+      price: 20
+    },
+    {
+      id: 3,
+      name: "Hola3",
+      price: 30
+    }
+  ] */
+
+
   const [cartItems, setCartItems ] = useState([]);
 
   const addItem = ( item ) => {
     console.log('Agrego Item');
-    debugger;
     if(!isInCart){
       setCartItems(
         ...cartItems,
         item);
     }
   }
+  
 
   const clear = () => {
     console.log('limpio carrito');
@@ -30,7 +50,6 @@ function App() {
 
   const isInCart = ( idItem ) => {
     return cartItems.map(item => item.id === idItem);
-    console.log('Esta en el carrito');
   }
 
   return (
@@ -52,7 +71,7 @@ function App() {
             <ItemDetailContainer />
           </Route>
           <Route exact path="/cart">
-            <ItemListContainer />
+            <Cart />
           </Route>
         </Switch>
       </BrowserRouter>

@@ -1,8 +1,11 @@
 import "./navBar.css";
 import { Link } from "react-router-dom";
-import React from "react";
+import { React, useContext } from "react";
 import logo from "../../../assets/icons/logo-market.svg";
-import CardWidget from "../../../components/CartWidget/CardWidget";
+import { CartContext } from "../../../context/cartContext";
+import logoCart from "../../../assets/icons/cart-shopping.svg";
+import CardWidget from "../../../components/CardWidget/CardWidget";
+import CartWidget from "../../../components/CartWidget/CartWidget";
 
 function NavBar() {
   const categories = [
@@ -13,6 +16,9 @@ function NavBar() {
       id: "Alien",
     },
   ];
+
+  const { cartItems } = useContext(CartContext);
+
   return (
     <div>
       <div className="navbar">
@@ -37,6 +43,14 @@ function NavBar() {
               ))}
             </div>
           </div>
+        </div>
+        <div className="cartIconContainer icon-button">
+          <Link to="/cart">
+            <CartWidget icon={logoCart} />
+          </Link>
+          {cartItems.length > 0 && (
+            <span class="icon-button__badge">{cartItems.length}</span>
+          )}
         </div>
       </div>
     </div>

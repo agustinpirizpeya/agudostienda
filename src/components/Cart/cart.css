@@ -1,0 +1,33 @@
+.cartContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+}
+
+.cartDetailItems {
+  display: flex;
+}
+
+.itemName {
+}
+
+.cartDetailItemsContainer {
+  display: flex;
+  padding: 10px;
+  justify-content: space-between;
+  width: 300px;
+  box-shadow: 0px 0px 1px 1px;
+}
+
+.rowRigthContent {
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+
+.deleteRowContainer img {
+  width: 10px;
+  margin-left: 10px;
+}

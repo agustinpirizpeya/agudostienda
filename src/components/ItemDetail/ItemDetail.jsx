@@ -8,21 +8,25 @@ import "./itemDetail.css";
 export default function ItemDetail(props) {
   const { addItem } = useContext(CartContext);
   const [items, setItems] = useState(0);
-  const [cartItem, setCartItem] = useState([]);
+  const [cartItem, setCartItem] = useState({});
 
   useEffect(() => {
     showFinishPurchase();
-    console.log("CANTIDADD", items);
-    console.log("THeme", addItem);
   }, [items]);
-
-  useEffect(() => {
-    addItem(cartItem);
-  }, [cartItem]);
 
   const showFinishPurchase = () => {
     return items > 0;
   };
+
+  const onAddCart = () => {
+    setCartItem(
+      {
+        ...props.itemDetail,
+        quantity: items,
+      }
+    );
+    addItem(cartItem);
+  }
 
   return (
     <div className="detailContainer">
@@ -40,15 +44,7 @@ export default function ItemDetail(props) {
           <Link to="/cart">
             {" "}
             <button
-              onClick={() =>
-                setCartItem([
-                  {
-                    ...cartItem,
-                    item: props.itemDetail,
-                    quantity: items,
-                  },
-                ])
-              }
+              onClick={onAddCart}
             >
               Terminar mi compra
             </button>{" "}
