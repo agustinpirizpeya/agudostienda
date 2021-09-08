@@ -24,7 +24,7 @@ export default function ItemCount({ stock, initial, onAdd , items }) {
   return (
     <div className="itemCountContainer">
       <div className="itemCountContent">
-        <h4>{"Camisa negra"}</h4>
+        <h4>{"Cantidad"}</h4>
         <div className="countContent">
           <div className="counterContainer">
             <img

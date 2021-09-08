@@ -11,7 +11,7 @@ export default function Item(props) {
         <div className="itemTitle">
           <h4>{props.productItem.name}</h4>
         </div>
-        <h3>${props.productItem.episode.length}</h3>
+        <h3>${props.productItem.price}</h3>
         <Link to={`/item/${props.productItem.id}`}> Detalle</Link>
       </div>
     </div>

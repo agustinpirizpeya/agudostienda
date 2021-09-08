@@ -10,10 +10,13 @@ import CartWidget from "../../../components/CartWidget/CartWidget";
 function NavBar() {
   const categories = [
     {
-      id: "Human",
+      id: "action",
     },
     {
-      id: "Alien",
+      id: "thriller",
+    },
+    {
+      id: "suspense",
     },
   ];
 

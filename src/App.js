@@ -8,7 +8,6 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
-
   /* const cart = [
     {
       id: 1,
@@ -27,33 +26,31 @@ function App() {
     }
   ] */
 
+  const [cartItems, setCartItems] = useState([]);
 
-  const [cartItems, setCartItems ] = useState([]);
-
-  const addItem = ( item ) => {
-    console.log('Agrego Item');
-    if(!isInCart){
-      setCartItems(
-        ...cartItems,
-        item);
+  const addItem = (item) => {
+    console.log("Agrego Item");
+    if (!isInCart) {
+      setCartItems(...cartItems, item);
     }
-  }
-  
+  };
 
   const clear = () => {
-    console.log('limpio carrito');
-  }
-  
-  const removeItem = () => {
-    console.log('Borro item carrito');
-  }
+    console.log("limpio carrito");
+  };
 
-  const isInCart = ( idItem ) => {
-    return cartItems.map(item => item.id === idItem);
-  }
+  const removeItem = () => {
+    console.log("Borro item carrito");
+  };
+
+  const isInCart = (idItem) => {
+    return cartItems.map((item) => item.id === idItem);
+  };
 
   return (
-    <CartContext.Provider value={{ cartItems, addItem, clear, removeItem, isInCart }}>
+    <CartContext.Provider
+      value={{ cartItems, addItem, clear, removeItem, isInCart }}
+    >
       <BrowserRouter>
         <div className="main">
           <header>

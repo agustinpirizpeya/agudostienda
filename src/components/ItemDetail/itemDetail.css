@@ -3,15 +3,22 @@
     justify-content: center;
 }
 
-.imgDetailContainer{
-
+.imgDetailContainer img{
+    max-width: 250px;
 }
 
 .itemDetailInfoContainer{
     display: flex;
-    flex-direction: column;
 }
 
-.itemDetailTitle{
+.buttonDetail{
+    padding: 10px;
+}
 
+.detailContainerRigth{
+    padding: 10px;
+}
+
+.detailCount{
+    max-width: 70%;
 }
