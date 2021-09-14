@@ -8,7 +8,7 @@ import ItemListContainer from "./components/ItemListContainer/ItemListContainer"
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 
 function App() {
-  /* const cart = [
+  const cart = [
     {
       id: 1,
       name: "Hola1",
@@ -24,9 +24,9 @@ function App() {
       name: "Hola3",
       price: 30
     }
-  ] */
+  ]
 
-  const [cartItems, setCartItems] = useState([]);
+  const [cartItems, setCartItems] = useState(cart);
 
   const addItem = (item) => {
     console.log("Agrego Item");

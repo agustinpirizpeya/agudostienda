@@ -1,15 +1,22 @@
-import { useState, useEffect, useContext } from "react";
-import ItemCount from "../ItemCount/ItemCount";
+import { useContext, useState } from "react";
+import { collection, addDoc, Timestamp } from "firebase/firestore";
 import DeleteRowIcon from "../../assets/icons/delete-row-icon.svg";
 import { CartContext } from "../../context/cartContext";
 import { Link } from "react-router-dom";
+import { getData } from "../../firebase";
 import "./cart.css";
 import DeleteRowWidget from "../DeleteRowWidget/DeleteRowWidget";
+import { useEffect } from "react";
+import ButtonStyled from "../Button/Button";
+import ModalStyled from "../Modal/Modal";
 
 export default function Cart() {
   const { cartItems, removeItem } = useContext(CartContext);
+  const [userInfo, setUserInfo] = useState({});
+  const [cartId, setCartId] = useState();
+  
 
-  const onDeleteRow = cartItem => {
+  const onDeleteRow = (cartItem) => {
     removeItem(cartItem);
   };
 
@@ -18,6 +25,17 @@ export default function Cart() {
       accumulator + currentValue.price;
     const sum = cartItems.reduce(reducer, 0);
     return sum;
+  };
+
+  const handleBuy = async () => {
+    debugger;
+    const orderCollection = await addDoc(collection(getData(), "orders"), {
+      buyer: userInfo,
+      items: cartItems,
+      date: Timestamp.fromDate(new Date()),
+      total: handleSumTotal(),
+    });
+    setCartId(orderCollection.id);
   };
 
   return (
@@ -33,13 +51,32 @@ export default function Cart() {
 
                 <div className="rowRigthContent">
                   {`$${cartItem.price} `}
-                  <div onClick={onDeleteRow(cartItem)} className="deleteRowContainer">
+                  <div
+                    onClick={onDeleteRow(cartItem)}
+                    className="deleteRowContainer"
+                  >
                     <DeleteRowWidget icon={DeleteRowIcon} />
                   </div>
                 </div>
               </div>
             ))}
             <h4>{`Total: $ ${handleSumTotal()}`}</h4>
+            <button onClick={handleBuy}>Finalizar compra</button>
+            <ModalStyled
+              formFirstName="Nombre"
+              formLastName="Apellido"
+              formEmail="Email"
+              textPrimaryButton="Finalizar compra"
+              modalPrimaryTitle="Completa tus datos"
+              textSecondaryButton="Confirmar"
+              textTerciaryButton="Listo"
+              modalSecondaryTitle="¡Compra Confirmada!"
+              modalSecondarySubtitle="Recibimos tu pedido correctamente, tu numero de referencia es: "
+              cartId={cartId}
+              cartForm={userInfo}
+              sendOrder={handleBuy}
+              onFormChange={setUserInfo}
+            ></ModalStyled>
           </>
         ) : (
           <h2>El carrito está vacio</h2>

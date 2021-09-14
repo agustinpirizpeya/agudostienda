@@ -1,9 +1,3 @@
-.button {
-    background-color: #3cc195;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    height: 10px;
+.btnStyled {
+    background-color: #3dc195 !important;
 }
