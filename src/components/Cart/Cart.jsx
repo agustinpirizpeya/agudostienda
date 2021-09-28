@@ -7,14 +7,12 @@ import { getData } from "../../firebase";
 import "./cart.css";
 import DeleteRowWidget from "../DeleteRowWidget/DeleteRowWidget";
 import { useEffect } from "react";
-import ButtonStyled from "../Button/Button";
 import ModalStyled from "../Modal/Modal";
 
 export default function Cart() {
-  const { cartItems, removeItem } = useContext(CartContext);
+  const { cartItems, removeItem, clear } = useContext(CartContext);
   const [userInfo, setUserInfo] = useState({});
   const [cartId, setCartId] = useState();
-  
 
   const onDeleteRow = (cartItem) => {
     removeItem(cartItem);
@@ -28,14 +26,15 @@ export default function Cart() {
   };
 
   const handleBuy = async () => {
-    debugger;
     const orderCollection = await addDoc(collection(getData(), "orders"), {
       buyer: userInfo,
       items: cartItems,
       date: Timestamp.fromDate(new Date()),
       total: handleSumTotal(),
     });
-    setCartId(orderCollection.id);
+    if (orderCollection.id) {
+      setCartId(orderCollection.id);
+    }
   };
 
   return (
@@ -47,21 +46,22 @@ export default function Cart() {
             <h4>Detalle: </h4>
             {cartItems.map((cartItem) => (
               <div className="cartDetailItemsContainer">
-                <div className="cartItemTitle">{cartItem.name}</div>
+                <div className="cartItemTitle">
+                  {cartItem.name} x{cartItem.quantity}
+                </div>
 
                 <div className="rowRigthContent">
                   {`$${cartItem.price} `}
-                  <div
-                    onClick={onDeleteRow(cartItem)}
-                    className="deleteRowContainer"
-                  >
-                    <DeleteRowWidget icon={DeleteRowIcon} />
+                  <div className="deleteRowContainer">
+                    <DeleteRowWidget
+                      onClick={onDeleteRow(cartItem)}
+                      icon={DeleteRowIcon}
+                    />
                   </div>
                 </div>
               </div>
             ))}
             <h4>{`Total: $ ${handleSumTotal()}`}</h4>
-            <button onClick={handleBuy}>Finalizar compra</button>
             <ModalStyled
               formFirstName="Nombre"
               formLastName="Apellido"
@@ -75,6 +75,7 @@ export default function Cart() {
               cartId={cartId}
               cartForm={userInfo}
               sendOrder={handleBuy}
+              onClearCart={clear}
               onFormChange={setUserInfo}
             ></ModalStyled>
           </>

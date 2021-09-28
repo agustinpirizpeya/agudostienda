@@ -1,5 +1,5 @@
+import { Link, useHistory } from "react-router-dom";
 import React from "react";
-import reactDom from "react-dom";
 import { Icon, Modal, Checkbox, Form } from "semantic-ui-react";
 import IconFormCart from "../../assets/icons/form-cart-icon.svg";
 import ButtonStyled from "../Button/Button";
@@ -9,10 +9,17 @@ function ModalStyled(props) {
   const [secondOpen, setSecondOpen] = React.useState(false);
   const [formState, setFormState] = React.useState(props.cartForm);
 
+  const history = useHistory();
+
   const handleConfirmOrder = () => {
-    debugger;
     props.sendOrder();
     setSecondOpen(true);
+  };
+
+  const onConfirmOrder = async () => {
+    await props.onClearCart();
+    await setSecondOpen(false);
+    history.push(`/`);
   };
 
   React.useEffect(() => {
@@ -104,15 +111,18 @@ function ModalStyled(props) {
             </p>
           </Modal.Content>
           <Modal.Actions>
-            <button
-              con="check"
-              content="All Done"
+            {/*             <Link
+              to="/"
               onClick={() => setSecondOpen(false)}
-              disabled={props.disabled}
               class="ui primary button btnStyled"
             >
-              {props.textTerciaryButton}
-            </button>
+              {" "}
+              Listo{" "}
+            </Link> */}
+            <ButtonStyled
+              onClick={onConfirmOrder}
+              text="Listo"
+            />
           </Modal.Actions>
         </Modal>
       </Modal>

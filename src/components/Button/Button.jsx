@@ -1,11 +1,15 @@
 import "./button.css";
-import { Button } from "semantic-ui-react";
 
 export default function ButtonStyled(props) {
+
+  const onButtonClick = () => {
+    if (props.onClick) props.onClick();
+  };
+
   return (
     <div styled="btnContainer">
       <button
-        onClick={() => props.onClick}
+        onClick={() => onButtonClick()}
         disabled={props.disabled}
         class="ui primary button btnStyled"
       >

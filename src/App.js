@@ -6,45 +6,47 @@ import { CartContext } from "./context/cartContext";
 import Cart from "./components/Cart/Cart";
 import ItemListContainer from "./components/ItemListContainer/ItemListContainer";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
+import { isEmptyObject } from "./utils/object";
 
 function App() {
-  const cart = [
-    {
-      id: 1,
-      name: "Hola1",
-      price: 10
-    },
-    {
-      id: 2,
-      name: "Hola2",
-      price: 20
-    },
-    {
-      id: 3,
-      name: "Hola3",
-      price: 30
-    }
-  ]
-
-  const [cartItems, setCartItems] = useState(cart);
+  const [cartItems, setCartItems] = useState([]);
 
   const addItem = (item) => {
-    console.log("Agrego Item");
-    if (!isInCart) {
-      setCartItems(...cartItems, item);
+    const cartDraft = [...cartItems];
+    if (!isEmptyObject(item)) {
+      if (!isInCart(item.id)) {
+        cartDraft.push(item);
+        setCartItems(cartDraft);
+      } else {
+        const newList = cartDraft.map((itemDraft) => {
+          if (itemDraft.id === item.id) {
+            const updatedItem = {
+              ...itemDraft,
+              quantity: itemDraft.quantity + item.quantity,
+              price: itemDraft.price + item.price,
+            };
+            return updatedItem;
+          }
+          return itemDraft;
+        });
+
+        setCartItems(newList);
+      }
     }
   };
 
   const clear = () => {
-    console.log("limpio carrito");
+    setCartItems([]);
   };
 
-  const removeItem = () => {
-    console.log("Borro item carrito");
-  };
+  const removeItem = () => {};
 
   const isInCart = (idItem) => {
-    return cartItems.map((item) => item.id === idItem);
+    if (cartItems.length > 0) {
+      const index = cartItems.findIndex((x) => x.id === idItem);
+      return index > -1;
+    }
+    return false;
   };
 
   return (
